@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#070913] text-gray-100 font-sans antialiased;
+    user-select: none;
+  }
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(108, 99, 255, 0.5);
+}
+
+@keyframes scaleIn {
+  0% { transform: scale(0.95); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(4px); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s ease-out forwards;
+}
+
+/* Rich Text Editor & Visual Content Styling */
+.rich-editor-content:empty:before {
+  content: attr(data-placeholder);
+  color: #6b7280;
+  pointer-events: none;
+  display: block;
+}
+
+.rich-editor-content, .rich-rendered-content {
+  color: #f3f4f6;
+  outline: none;
+}
+
+.rich-editor-content h1, .rich-rendered-content h1 {
+  font-size: 1.45rem;
+  font-weight: 900;
+  color: #a78bfa;
+  margin-top: 0.75rem;
+  margin-bottom: 0.35rem;
+  border-bottom: 1px solid rgba(139, 92, 246, 0.25);
+  padding-bottom: 0.25rem;
+}
+
+.rich-editor-content h2, .rich-rendered-content h2 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #4ecdc4;
+  margin-top: 0.6rem;
+  margin-bottom: 0.25rem;
+}
+
+.rich-editor-content h3, .rich-rendered-content h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #c4b5fd;
+  margin-top: 0.5rem;
+  margin-bottom: 0.2rem;
+}
+
+.rich-editor-content p, .rich-rendered-content p {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  line-height: 1.6;
+}
+
+.rich-editor-content strong, .rich-editor-content b,
+.rich-rendered-content strong, .rich-rendered-content b {
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.rich-editor-content em, .rich-editor-content i,
+.rich-rendered-content em, .rich-rendered-content i {
+  font-style: italic;
+  color: #ddd6fe;
+}
+
+.rich-editor-content u, .rich-rendered-content u {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: #4ecdc4;
+}
+
+.rich-editor-content blockquote, .rich-rendered-content blockquote {
+  border-left: 4px solid #6c63ff;
+  background: rgba(108, 99, 255, 0.12);
+  padding: 0.5rem 0.75rem;
+  border-radius: 0 0.75rem 0.75rem 0;
+  margin: 0.5rem 0;
+  font-style: italic;
+  color: #e0e7ff;
+}
+
+.rich-editor-content ul, .rich-rendered-content ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin: 0.35rem 0;
+}
+
+.rich-editor-content ol, .rich-rendered-content ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin: 0.35rem 0;
+}
+
+.rich-editor-content li, .rich-rendered-content li {
+  margin: 0.15rem 0;
+  line-height: 1.5;
+}
+
+.rich-editor-content hr, .rich-rendered-content hr {
+  border-color: rgba(255, 255, 255, 0.1);
+  margin: 0.75rem 0;
+}
+
+.rich-editor-content mark, .rich-rendered-content mark {
+  background-color: rgba(251, 191, 36, 0.35);
+  color: #fef08a;
+  padding: 0.1rem 0.3rem;
+  border-radius: 0.25rem;
+}
